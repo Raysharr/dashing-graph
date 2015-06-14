@@ -1,0 +1,189 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  rgba(168,21,51, .55);
+
+$title-color:       rgba(237, 78, 110, 0.8);
+$moreinfo-color:    rgba(255, 255, 255, 0.3);
+$tick-color:        rgba(0, 0, 0, 0.4);
+
+
+// ----------------------------------------------------------------------------
+// Widget-graph styles
+// ----------------------------------------------------------------------------
+.widget-mgraph {
+
+  background-color: $background-color;
+  position: relative;
+
+  &.widget {
+    vertical-align: top;
+  }
+
+
+  svg {
+    position: absolute;
+    // opacity: 0.4;
+    // fill-opacity: 0.4;
+    left: 0px;
+    top: 0px;
+  }
+
+  .title, .value {
+    position: relative;
+    z-index: 99;
+  }
+
+  .title {
+    color: $title-color;
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .x_tick {
+    position: absolute;
+    bottom: 0;
+    .title {
+      font-size: 20px;
+      color: $tick-color;
+      opacity: 0.5;
+      padding-bottom: 3px;
+    }
+  }
+
+  .y_ticks {
+    font-size: 20px;
+    fill: $tick-color;
+    fill-opacity: 1;
+  }
+
+  .domain {
+    display: none;
+  }
+
+  .detail {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    width: 1px;
+    transition: opacity 0.25s linear;
+    -moz-transition: opacity 0.25s linear;
+    -o-transition: opacity 0.25s linear;
+    -webkit-transition: opacity 0.25s linear;
+  }
+
+  .detail.inactive {
+    opacity: 0;
+  }
+
+  .detail .item.active {
+    opacity: 1;
+  }
+
+  .detail .x_label {
+    background: rgba(109, 6, 27, .7);
+    border: 1px solid gba(109, 6, 27, 1);
+    border-radius: 3px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: .5em;
+    position: absolute;
+    top: 10px;
+    white-space: nowrap;
+  }
+
+  .detail .x_label.left {
+    left: 0;
+  }
+
+  .detail .x_label.right {
+    right: 0;
+  }
+
+  .detail .item {
+    position: absolute;
+    z-index: 2;
+    border-radius: 3px;
+    padding: 0.5em;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    background: rgba(109, 6, 27, 0.4);
+    color: white;
+    background: rgba(109, 6, 27, 0.8);
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: -1em;
+    white-space: nowrap;
+  }
+
+  .detail .item.left {
+    left: 0;
+  }
+
+  .detail .item.right {
+    right: 0;
+  }
+
+  .detail .item.active {
+    opacity: 1;
+    background: rgba(109, 6, 27, 1);
+  }
+
+  .detail .item:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+
+    content: "";
+
+    border: 5px solid transparent;
+  }
+
+  .detail .item.left:after {
+    top: 1em;
+    left: -5px;
+    margin-top: -5px;
+    border-right-color: rgba(0, 0, 0, 0.8);
+    border-left-width: 0;
+  }
+
+  .detail .item.right:after {
+    top: 1em;
+    right: -5px;
+    margin-top: -5px;
+    border-left-color: rgba(0, 0, 0, 0.8);
+    border-right-width: 0;
+  }
+
+  .detail .dot {
+    width: 4px;
+    height: 4px;
+    margin-left: -3px;
+    margin-top: -3.5px;
+    border-radius: 5px;
+    position: absolute;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    background: white;
+    border-width: 2px;
+    border-style: solid;
+    display: none;
+    background-clip: padding-box;
+  }
+
+  .detail .dot.active {
+    display: block;
+  }
+}
