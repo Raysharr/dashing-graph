@@ -100,6 +100,8 @@ class Dashing.Mgraph extends Dashing.Widget
       graph: graph
     });
 
+    axes.render()
+
   onData: (data) ->
     if @graph
       @graph.series[0].data = [{x: 0, y: 0}, {x: 10, y: 10}, {x: 20, y: 20}, {x: 30, y: 30}, {x: 40, y: 40}, {x: 50, y: 50}, {x: 60, y: 60}]
